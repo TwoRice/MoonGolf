@@ -4,26 +4,22 @@ using UnityEngine;
 
 public class Gravity : MonoBehaviour
 {
-    public float G = 1f;
-    GameObject[] attractors;
-    GameObject[] orbiters;
+    private GameObject moon;
+    private Rigidbody2D moonBody2D;
+    private Rigidbody2D body2D;
     
     void Start()
     {
-        attractors = GameObject.FindGameObjectsWithTag("Attractor");
-        orbiters = GameObject.FindGameObjectsWithTag("Orbiter");
+        body2D = GetComponent<Rigidbody2D>();
+        moon = GameObject.FindWithTag("Orbiter");
+        moonBody2D = moon.GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate()
     {
-        foreach (GameObject a in attractors) {
-            foreach (GameObject o in orbiters) {
-                float attractor_mass = a.GetComponent<Rigidbody2D>().mass;
-                float attraction = Vector2.Distance(a.transform.position, o.transform.position);
+        float attractionForce = Vector2.Distance(transform.position, moon.transform.position);
 
-                Vector2 attraction_dir = (a.transform.position - o.transform.position).normalized;
-                o.GetComponent<Rigidbody2D>().AddForce(attraction_dir * (G * attractor_mass) / (attraction * attraction));
-            }
-        }
+        Vector2 attraction_dir = (transform.position - moon.transform.position).normalized;
+        moonBody2D.AddForce((attraction_dir * body2D.mass) / (attractionForce * attractionForce));
     }
 }

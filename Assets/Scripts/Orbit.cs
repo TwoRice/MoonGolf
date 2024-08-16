@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Orbit : MonoBehaviour
 {
-    [SerializeField] Gravity gravity;
     [SerializeField] GameObject orbitCentre;
 
 
@@ -15,6 +14,6 @@ public class Orbit : MonoBehaviour
         float r = Vector2.Distance(transform.position, orbitCentre.transform.position);
         
         Vector2 orbitDirection = new Vector2(-1, 0);
-        body2D.velocity += orbitDirection * Mathf.Sqrt((gravity.G * orbitMass) / r);
+        body2D.velocity += orbitDirection * Mathf.Sqrt(orbitMass / r);
     }
 }

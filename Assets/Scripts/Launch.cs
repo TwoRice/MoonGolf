@@ -5,6 +5,7 @@ using UnityEngine;
 public class Launch : MonoBehaviour
 {
     [SerializeField] float launchSpeed = 10f;
+    [SerializeField] ManageGravity manageGravity;
     
     private bool launched = false;
     private Rigidbody2D body2D;
@@ -20,6 +21,7 @@ public class Launch : MonoBehaviour
     {
         if (playerInput.Shoot && launched == false) {
             launched = true;
+            manageGravity.EnableGravity();
             Vector2 currentDirection = body2D.velocity.normalized;
             body2D.velocity += currentDirection * launchSpeed;
         }
