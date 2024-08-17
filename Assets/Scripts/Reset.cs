@@ -16,19 +16,15 @@ public class Reset : MonoBehaviour
     }
 
     public IEnumerator ResetMoon() {
-        manageGravity.DisableGravity(disableInitialAttractor: true);
-        yield return StartCoroutine(MoveOverTime(new Vector3(0, -0.35f, 0), new Vector3(0, 2, 0), new Vector3(1, 0, 0)));
+        yield return StartCoroutine(MoveOverTime(new Vector3(0, 0, 0), new Vector3(0, 2, 0)));
         orbit.InitiateOrbit();
-        manageGravity.EnableInitialGravity();
     }
 
-    IEnumerator MoveOverTime(Vector3 start, Vector3 end, Vector3 control) {
+    IEnumerator MoveOverTime(Vector3 start, Vector3 end) {
         float elapsed = 0f;
 
         while (elapsed < animationDuration) {
-            float t = elapsed / animationDuration;
-            Vector3 position = Mathf.Pow(1 - t, 2) * start + 2 * (1 - t) * t * control + Mathf.Pow(t, 2) * end;
-            transform.localPosition = position;
+            transform.localPosition = Vector3.Lerp(start, end, elapsed / animationDuration);
             elapsed += Time.deltaTime;
             yield return null;
         }
