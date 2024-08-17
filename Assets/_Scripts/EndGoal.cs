@@ -7,6 +7,6 @@ public class EndGoal : MonoBehaviour
 {
     void OnCollisionEnter2D(Collision2D collisionInfo)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

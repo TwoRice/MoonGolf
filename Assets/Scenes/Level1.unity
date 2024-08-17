@@ -588,6 +588,7 @@ MonoBehaviour:
   randomSeed: 3
   asteroid: {fileID: 5685290040661359122, guid: 48466676a556bf7429d8e511f051b09b, type: 3}
   numberAsteroids: 50
+  shape: 0
 --- !u!1 &253721090
 GameObject:
   m_ObjectHideFlags: 0
@@ -2240,7 +2241,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 100
+  m_Mass: 200
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0

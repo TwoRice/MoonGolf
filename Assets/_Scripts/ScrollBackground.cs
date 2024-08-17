@@ -7,17 +7,6 @@ public class ScrollBackground : MonoBehaviour
     [SerializeField] private float scrollTime = 10f;
     private MeshRenderer mr;
     private Material mat;
-    private static ScrollBackground instance;
-
-    void Awake()
-    {
-        if (instance == null) {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        } else {
-            Destroy(gameObject);
-        }
-    }
 
     void Start()
     {
