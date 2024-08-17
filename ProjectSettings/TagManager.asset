@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Orbiter
   - Attractor
+  - InitialAttractor
   layers:
   - Default
   - TransparentFX

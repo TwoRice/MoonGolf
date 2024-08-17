@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class Orbit : MonoBehaviour
 {
-    [SerializeField] GameObject orbitCentre;
-
+    private Rigidbody2D body2D;
+    private Vector2 orbitVelocity;
 
     void Start() {
-        Rigidbody2D body2D = GetComponent<Rigidbody2D>();
+        body2D = GetComponent<Rigidbody2D>();
+        GameObject orbitCentre = transform.parent.gameObject;
 
         float orbitMass = orbitCentre.GetComponent<Rigidbody2D>().mass;
         float r = Vector2.Distance(transform.position, orbitCentre.transform.position);
-        
-        Vector2 orbitDirection = new Vector2(-1, 0);
-        body2D.velocity += orbitDirection * Mathf.Sqrt(orbitMass / r);
+        Vector2 orbitDirection = new(-1, 0);
+        orbitVelocity = orbitDirection * Mathf.Sqrt(orbitMass / r);
+        InitiateOrbit();
+    }
+
+    public void InitiateOrbit() {
+        body2D.velocity = orbitVelocity;
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Launch : MonoBehaviour
 {
     [SerializeField] float launchSpeed = 10f;
-    [SerializeField] ManageGravity manageGravity;
+    private ManageGravity manageGravity;
     
     private bool launched = false;
     private Rigidbody2D body2D;
@@ -15,6 +15,7 @@ public class Launch : MonoBehaviour
     {
         body2D = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInputManager>();
+        manageGravity = GameObject.FindGameObjectWithTag("GravityManager").GetComponent<ManageGravity>();
     }
 
     void Update()
