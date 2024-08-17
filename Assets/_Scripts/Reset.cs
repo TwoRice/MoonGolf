@@ -24,8 +24,8 @@ public class Reset : MonoBehaviour
     IEnumerator ResetMoonCo() {
         manageGravity.DisableGravity();
         yield return StartCoroutine(MoveOverTime(new Vector3(0, 0, 0), new Vector3(0, 2, 0)));
-        manageGravity.EnableInitialGravity();
         orbit.InitiateOrbit();
+        manageGravity.EnableInitialGravity();
         launch.ResetLaunch();
     }
 
