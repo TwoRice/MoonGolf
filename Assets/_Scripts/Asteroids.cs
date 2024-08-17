@@ -18,15 +18,15 @@ public class Asteroids : MonoBehaviour
 
         for (int i = 0; i < numberAsteroids; i++)
         {
-            GameObject newAsteroid = Instantiate(asteroid, transform.parent);
+            GameObject newAsteroid = Instantiate(asteroid);
 
             float X = Random.Range(min.x, max.x);
             float Y = Random.Range(min.y, max.y);
             float scale = Random.Range(1, 1.3f);
             float rotation = Random.Range(0, 360);
 
-            newAsteroid.transform.localPosition = new Vector3(X, Y, 0);
-            newAsteroid.transform.localScale = new Vector3(scale, scale, 0);
+            newAsteroid.transform.position   = new Vector3(X, Y, 0);
+            newAsteroid.transform.localScale = new Vector3(scale, scale, 1);
             newAsteroid.transform.Rotate(Vector3.forward * rotation);
         }
     }
