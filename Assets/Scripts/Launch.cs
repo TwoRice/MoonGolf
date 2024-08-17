@@ -18,10 +18,15 @@ public class Launch : MonoBehaviour
         manageGravity = GameObject.FindGameObjectWithTag("GravityManager").GetComponent<ManageGravity>();
     }
 
+    public void ResetLaunch() {
+        launched = false;
+    }
+
     void Update()
     {
         if (playerInput.Shoot && launched == false) {
             launched = true;
+            manageGravity.DisableInitialGravity();
             manageGravity.EnableGravity();
             Vector2 currentDirection = body2D.velocity.normalized;
             body2D.velocity += currentDirection * launchSpeed;

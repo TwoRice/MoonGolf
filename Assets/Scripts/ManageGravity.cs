@@ -17,6 +17,10 @@ public class ManageGravity : MonoBehaviour
     public void EnableInitialGravity() {
         initialAttractor.GetComponent<Gravity>().enabled = true;
     }
+
+    public void DisableInitialGravity() {
+        initialAttractor.GetComponent<Gravity>().enabled = false;
+    }
     
     public void EnableGravity() {
         foreach (GameObject a in attractors) {
@@ -24,11 +28,7 @@ public class ManageGravity : MonoBehaviour
         }
     }
 
-    public void DisableGravity(bool disableInitialAttractor=false) {
-        if (disableInitialAttractor) {
-            initialAttractor.GetComponent<Gravity>().enabled = false;
-        }
-
+    public void DisableGravity() {
         foreach (GameObject a in attractors) {
             a.GetComponent<Gravity>().enabled = false;
         }

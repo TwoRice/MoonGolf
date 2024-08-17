@@ -7,17 +7,26 @@ public class Reset : MonoBehaviour
     [SerializeField] private float animationDuration = 1f;
     private PlayerInputManager playerInput;
     private ManageGravity manageGravity;
+    private Launch launch;
     private Orbit orbit;
 
     void Start() {
         playerInput = GetComponent<PlayerInputManager>();
         manageGravity = GameObject.FindGameObjectWithTag("GravityManager").GetComponent<ManageGravity>();
+        launch = GetComponent<Launch>();
         orbit = GetComponent<Orbit>();
     }
 
-    public IEnumerator ResetMoon() {
+    public void ResetMoon() {
+        StartCoroutine(ResetMoonCo());
+    }
+    
+    IEnumerator ResetMoonCo() {
+        manageGravity.DisableGravity();
         yield return StartCoroutine(MoveOverTime(new Vector3(0, 0, 0), new Vector3(0, 2, 0)));
+        manageGravity.EnableInitialGravity();
         orbit.InitiateOrbit();
+        launch.ResetLaunch();
     }
 
     IEnumerator MoveOverTime(Vector3 start, Vector3 end) {
@@ -34,7 +43,7 @@ public class Reset : MonoBehaviour
     
     void Update() {
         if (playerInput.Reset) {
-            StartCoroutine(ResetMoon());
+            ResetMoon();
         }
         
     }
