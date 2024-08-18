@@ -5,8 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class EndGoal : MonoBehaviour
 {
-    void OnCollisionEnter2D(Collision2D collisionInfo)
-    {
+    private AudioSource soundEffect;
+    private bool isComplete = false;
+
+    void Start() {
+        soundEffect = GetComponent<AudioSource>();
+    }
+
+    void OnCollisionEnter2D(Collision2D collisionInfo) {
+        if (!isComplete) {
+            collisionInfo.gameObject.SetActive(false);
+            StartCoroutine(CompleteLevel());
+        }
+    }
+
+    IEnumerator CompleteLevel() {
+        isComplete = true;
+        soundEffect.Play(0);
+        yield return new WaitWhile(() => soundEffect.isPlaying);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
