@@ -17,7 +17,7 @@ public class EndGoal : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collisionInfo) {
         if (!isComplete) {
             int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
-            nextLevelIndex = currentLevelIndex == 5 ? 1 : currentLevelIndex + 1;
+            nextLevelIndex = currentLevelIndex == 5 ? 0 : currentLevelIndex + 1;
             collisionInfo.gameObject.SetActive(false);
             if (soundEffect != null) {
                 StartCoroutine(CompleteLevel());
