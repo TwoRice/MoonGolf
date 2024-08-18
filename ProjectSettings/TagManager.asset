@@ -9,6 +9,7 @@ TagManager:
   - InitialAttractor
   - GravityManager
   - EndScreen
+  - Explosion
   layers:
   - Default
   - TransparentFX

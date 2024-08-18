@@ -20,7 +20,7 @@ public class EndGoal : MonoBehaviour
                 StartCoroutine(CompleteLevel());
             }
             else {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings);
             }
         }
     }
@@ -31,6 +31,6 @@ public class EndGoal : MonoBehaviour
         soundEffect.Play(0);
         yield return new WaitWhile(() => soundEffect.isPlaying);
         endScreen.SetActive(false);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings);
     }
 }
