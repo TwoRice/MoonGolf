@@ -707,7 +707,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.3
 --- !u!50 &1106489689
 Rigidbody2D:
   serializedVersion: 4
@@ -775,7 +775,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 2fe333fa10637ba4595b6b130987b899, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -838,7 +838,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a187549191b37b48bf8dbd19a6ac6c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  random: 0
   rotationSpeed: 20
+  rotateLeft: 1
 --- !u!1 &1801805805
 GameObject:
   m_ObjectHideFlags: 0

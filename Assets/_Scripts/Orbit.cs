@@ -9,7 +9,7 @@ public class Orbit : MonoBehaviour
 
     void Start() {
         body2D = GetComponent<Rigidbody2D>();
-        GameObject orbitCentre = transform.parent.gameObject;
+        GameObject orbitCentre = GameObject.FindGameObjectWithTag("InitialAttractor");
 
         float orbitMass = orbitCentre.GetComponent<Rigidbody2D>().mass;
         float r = Vector2.Distance(transform.position, orbitCentre.transform.position);
