@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class EndGoal : MonoBehaviour
 {
+    [SerializeField] GameObject endScreen;
     private AudioSource soundEffect;
     private bool isComplete = false;
 
@@ -26,8 +27,10 @@ public class EndGoal : MonoBehaviour
 
     IEnumerator CompleteLevel() {
         isComplete = true;
+        endScreen.SetActive(true);
         soundEffect.Play(0);
         yield return new WaitWhile(() => soundEffect.isPlaying);
+        endScreen.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

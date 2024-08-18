@@ -8,6 +8,7 @@ TagManager:
   - Attractor
   - InitialAttractor
   - GravityManager
+  - EndScreen
   layers:
   - Default
   - TransparentFX
