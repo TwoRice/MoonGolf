@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Launch : MonoBehaviour
@@ -8,9 +9,11 @@ public class Launch : MonoBehaviour
     private ManageGravity manageGravity;
     
     private bool launched = false;
+    private int shotsFired = 0;
     private Rigidbody2D body2D;
     private PlayerInputManager playerInput;
     private AudioSource soundEffect;
+    private TextMeshProUGUI shotsText;
     
     void Start()
     {
@@ -18,6 +21,7 @@ public class Launch : MonoBehaviour
         playerInput = GetComponent<PlayerInputManager>();
         manageGravity = GameObject.FindGameObjectWithTag("GravityManager").GetComponent<ManageGravity>();
         soundEffect = GetComponent<AudioSource>();
+        shotsText = GameObject.FindGameObjectWithTag("ShotsText").GetComponent<TextMeshProUGUI>();
     }
 
     public void ResetLaunch() {
@@ -38,7 +42,10 @@ public class Launch : MonoBehaviour
             manageGravity.EnableGravity();
             Vector2 currentDirection = body2D.velocity.normalized;
             body2D.velocity += currentDirection * launchSpeed;
+
             PlayLaunchSound();
+            shotsFired++;
+            shotsText.SetText("Shots: " + shotsFired);
         }
     }
 }

@@ -10,6 +10,7 @@ TagManager:
   - GravityManager
   - EndScreen
   - Explosion
+  - ShotsText
   layers:
   - Default
   - TransparentFX
