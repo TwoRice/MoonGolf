@@ -10,10 +10,12 @@ public class PlayerInputManager : MonoBehaviour
 {
     public bool Shoot {get; private set;}
     public bool Reset {get; private set;}
+    public bool HardReset {get; private set;}
 
     void Update()
     {
         Shoot = Input.GetButtonDown("Fire1");
         Reset = Input.GetKeyDown(KeyCode.R);
+        HardReset = Input.GetKeyDown(KeyCode.X);
     }
 }

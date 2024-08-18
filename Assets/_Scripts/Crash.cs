@@ -12,7 +12,7 @@ public class Crash : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collisionInfo){
         if (collisionInfo.gameObject.layer == LayerMask.NameToLayer("Hazard")) {
-            collisionInfo.gameObject.GetComponent<AudioSource>().Play(0);
+            collisionInfo.gameObject.GetComponent<AudioSource>()?.Play(0);
             reset.ResetMoon();
         }
     }

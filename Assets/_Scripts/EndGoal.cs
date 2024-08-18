@@ -15,7 +15,12 @@ public class EndGoal : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collisionInfo) {
         if (!isComplete) {
             collisionInfo.gameObject.SetActive(false);
-            StartCoroutine(CompleteLevel());
+            if (soundEffect != null) {
+                StartCoroutine(CompleteLevel());
+            }
+            else {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
         }
     }
 
