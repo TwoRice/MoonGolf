@@ -7,6 +7,6 @@ using UnityEngine.SceneManagement;
 public class LevelNumber : MonoBehaviour
 {
     void Start() {
-        GetComponent<TextMeshProUGUI>().SetText("Level" + (SceneManager.GetActiveScene().buildIndex + 1) + "/5");
+        GetComponent<TextMeshProUGUI>().SetText("Level" + (SceneManager.GetActiveScene().buildIndex) + "/5");
     }
 }
