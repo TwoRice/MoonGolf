@@ -10,12 +10,14 @@ public class Reset : MonoBehaviour
     private ManageGravity manageGravity;
     private Launch launch;
     private Orbit orbit;
+    private TrailRenderer trail;
 
     void Start() {
         playerInput = GetComponent<PlayerInputManager>();
         manageGravity = GameObject.FindGameObjectWithTag("GravityManager").GetComponent<ManageGravity>();
         launch = GetComponent<Launch>();
         orbit = GetComponent<Orbit>();
+        trail = GetComponent<TrailRenderer>();
     }
 
     public void ResetMoon() {
@@ -23,11 +25,13 @@ public class Reset : MonoBehaviour
     }
     
     IEnumerator ResetMoonCo() {
+        trail.enabled = false;
         manageGravity.DisableGravity();
         yield return StartCoroutine(MoveOverTime(new Vector3(0, 0, 0), new Vector3(0, 2, 0)));
         orbit.InitiateOrbit();
         manageGravity.EnableInitialGravity();
         launch.ResetLaunch();
+        trail.enabled = true;
     }
 
     IEnumerator MoveOverTime(Vector3 start, Vector3 end) {

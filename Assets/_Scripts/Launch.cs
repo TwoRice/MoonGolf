@@ -21,7 +21,7 @@ public class Launch : MonoBehaviour
         playerInput = GetComponent<PlayerInputManager>();
         manageGravity = GameObject.FindGameObjectWithTag("GravityManager").GetComponent<ManageGravity>();
         soundEffect = GetComponent<AudioSource>();
-        shotsText = GameObject.FindGameObjectWithTag("ShotsText").GetComponent<TextMeshProUGUI>();
+        shotsText = GameObject.FindGameObjectWithTag("ShotsText")?.GetComponent<TextMeshProUGUI>();
     }
 
     public void ResetLaunch() {
@@ -45,7 +45,9 @@ public class Launch : MonoBehaviour
 
             PlayLaunchSound();
             shotsFired++;
-            shotsText.SetText("Shots: " + shotsFired);
+            if (shotsText) {
+                shotsText.SetText("Shots: " + shotsFired);
+            }
         }
     }
 }
