@@ -75,10 +75,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -114,7 +114,6 @@ GameObject:
   - component: {fileID: 6420965838955056720}
   - component: {fileID: 3651897508121333528}
   - component: {fileID: 7235407613238718710}
-  - component: {fileID: 7290130284141461246}
   m_Layer: 5
   m_Name: ShotNum
   m_TagString: ShotsText
@@ -238,18 +237,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7290130284141461246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4812081546442472894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f5dffafee92bf14abdebd6d4d2e5be1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7762906609383249752
 GameObject:
   m_ObjectHideFlags: 0
