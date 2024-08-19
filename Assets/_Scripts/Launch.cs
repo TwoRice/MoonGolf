@@ -5,11 +5,10 @@ using UnityEngine;
 
 public class Launch : MonoBehaviour
 {
+    public bool Launched {get; private set;} = false;
     [SerializeField] float launchSpeed = 10f;
     private ManageGravity manageGravity;
-    
-    private bool launched = false;
-    private int shotsFired = 0;
+        private int shotsFired = 0;
     private Rigidbody2D body2D;
     private PlayerInputManager playerInput;
     private AudioSource soundEffect;
@@ -25,7 +24,7 @@ public class Launch : MonoBehaviour
     }
 
     public void ResetLaunch() {
-        launched = false;
+        Launched = false;
     }
 
     public void PlayLaunchSound() {
@@ -36,8 +35,8 @@ public class Launch : MonoBehaviour
 
     void Update()
     {
-        if (playerInput.Shoot && launched == false) {
-            launched = true;
+        if (playerInput.Shoot && Launched == false) {
+            Launched = true;
             manageGravity.DisableInitialGravity();
             manageGravity.EnableGravity();
             Vector2 currentDirection = body2D.velocity.normalized;

@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 4947663698324608340}
   - component: {fileID: 8170533054866740988}
   - component: {fileID: 1715982029819214993}
-  - component: {fileID: 528846022720120183}
+  - component: {fileID: 8389679268590785204}
   m_Layer: 6
   m_Name: Moon
   m_TagString: Orbiter
@@ -326,7 +326,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!96 &528846022720120183
+--- !u!96 &8389679268590785204
 TrailRenderer:
   serializedVersion: 3
   m_ObjectHideFlags: 0

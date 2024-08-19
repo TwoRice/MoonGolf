@@ -47,7 +47,7 @@ public class Reset : MonoBehaviour
     }
     
     void Update() {
-        if (playerInput.Reset) {
+        if (playerInput.Reset && launch.Launched) {
             ResetMoon();
         }
         if (playerInput.HardReset) {
